@@ -1,0 +1,320 @@
+package org.fenixedu.bennu.social.domain;
+
+// class definition
+
+class api.SocialAPI {
+	public String clientId;
+	public String clientSecret;
+	public boolean active;
+	public String bindedScopes;
+}
+
+class user.SocialUser {
+	public String accessToken;
+}
+
+class api.GithubAPI extends api.SocialAPI {
+	
+}
+
+class user.GithubUser extends user.SocialUser {
+	public String tokenType;
+	public String state;
+	public String askedScopes;
+	public String authorizedScopes;
+}
+
+class api.LinkedinAPI extends api.SocialAPI {
+
+}
+
+class user.LinkedinUser extends user.SocialUser {
+	public String state;
+	public String authorizedScopes;
+	public DateTime expirationDate;
+}
+
+class api.FacebookAPI extends api.SocialAPI {
+
+}
+
+class user.FacebookUser extends user.SocialUser {
+	public String state;
+	public String tokenType;
+	public DateTime expirationDate;
+}
+
+class api.TwitterAPI extends api.SocialAPI {
+
+}
+
+class user.TwitterUser extends user.SocialUser {
+	public String tokenSecret;
+	public String screenName;
+	public String oauthToken;
+	public String oauthTokenSecret;
+}
+
+class api.FlickrAPI extends api.SocialAPI {
+
+}
+
+class user.FlickrUser extends user.SocialUser {
+	public String token;
+	public String secret;
+	public String accessTokenSecret;
+}
+
+class api.DropboxAPI extends api.SocialAPI {
+
+}
+
+class user.DropboxUser extends user.SocialUser {
+	public String state;
+	public String tokenType;
+	public String uid;
+}
+
+class api.BitbucketAPI extends api.SocialAPI {
+
+}
+
+class user.BitbucketUser extends user.SocialUser {
+	public String authorizedScopes;
+	public String refreshToken; 
+	public String tokenType; 
+	public DateTime expirationDate;
+}
+
+class api.GoogleAPI extends api.SocialAPI {
+
+}
+
+class user.GoogleUser extends user.SocialUser {
+	public String state;
+	public String tokenId; 
+	public String tokenType; 
+	public DateTime expirationDate;
+}
+
+// user - social user relationship definition
+
+relation UserGithubUser {
+	protected user.GithubUser playsRole githubUser {
+		multiplicity 0..1;
+	}
+	public .org.fenixedu.bennu.core.domain.User playsRole user {
+		multiplicity 1..1;
+	}
+}
+
+relation UserLinkedinUser {
+	protected user.LinkedinUser playsRole linkedinUser {
+		multiplicity 0..1;
+	}
+	public .org.fenixedu.bennu.core.domain.User playsRole user {
+		multiplicity 1..1;
+	}
+}
+
+relation UserFacebookUser {
+	protected user.FacebookUser playsRole facebookUser {
+		multiplicity 0..1;
+	}
+	public .org.fenixedu.bennu.core.domain.User playsRole user {
+		multiplicity 1..1;
+	}
+}
+
+relation UserTwitterUser {
+	protected user.TwitterUser playsRole twitterUser {
+		multiplicity 0..1;
+	}
+	public .org.fenixedu.bennu.core.domain.User playsRole user {
+		multiplicity 1..1;
+	}
+}
+
+relation UserFlickrUser {
+	protected user.FlickrUser playsRole flickrUser {
+		multiplicity 0..1;
+	}
+	public .org.fenixedu.bennu.core.domain.User playsRole user {
+		multiplicity 1..1;
+	}
+}
+
+relation UserDropboxUser {
+	protected user.DropboxUser playsRole dropboxUser {
+		multiplicity 0..1;
+	}
+	public .org.fenixedu.bennu.core.domain.User playsRole user {
+		multiplicity 1..1;
+	}
+}
+
+relation UserBitbucketUser {
+	protected user.BitbucketUser playsRole bitbucketUser {
+		multiplicity 0..1;
+	}
+	public .org.fenixedu.bennu.core.domain.User playsRole user {
+		multiplicity 1..1;
+	}
+}
+
+relation UserGoogleUser {
+	protected user.GoogleUser playsRole googleUser {
+		multiplicity 0..1;
+	}
+	public .org.fenixedu.bennu.core.domain.User playsRole user {
+		multiplicity 1..1;
+	}
+}
+
+// social api - root relationships definition
+
+relation GithubAPIBennuRoot {
+	public api.GithubAPI playsRole githubAPI {
+		multiplicity 0..1;
+	}
+	public .org.fenixedu.bennu.core.domain.Bennu playsRole bennu {
+		multiplicity 1..1;
+	}
+}
+
+relation LinkedinAPIBennuRoot {
+	public api.LinkedinAPI playsRole linkedinAPI {
+		multiplicity 0..1;
+	}
+	public .org.fenixedu.bennu.core.domain.Bennu playsRole bennu {
+		multiplicity 1..1;
+	}
+}
+
+relation FacebookAPIBennuRoot {
+	public api.FacebookAPI playsRole facebookAPI {
+		multiplicity 0..1;
+	}
+	public .org.fenixedu.bennu.core.domain.Bennu playsRole bennu {
+		multiplicity 1..1;
+	}
+}
+
+relation TwitterAPIBennuRoot {
+	public api.TwitterAPI playsRole twitterAPI {
+		multiplicity 0..1;
+	}
+	public .org.fenixedu.bennu.core.domain.Bennu playsRole bennu {
+		multiplicity 1..1;
+	}
+}
+
+relation FlickrAPIBennuRoot {
+	public api.FlickrAPI playsRole flickrAPI {
+		multiplicity 0..1;
+	}
+	public .org.fenixedu.bennu.core.domain.Bennu playsRole bennu {
+		multiplicity 1..1;
+	}
+}
+
+relation DropboxAPIBennuRoot {
+	public api.DropboxAPI playsRole dropboxAPI {
+		multiplicity 0..1;
+	}
+	public .org.fenixedu.bennu.core.domain.Bennu playsRole bennu {
+		multiplicity 1..1;
+	}
+}
+
+relation BitbucketAPIBennuRoot {
+	public api.BitbucketAPI playsRole bitbucketAPI {
+		multiplicity 0..1;
+	}
+	public .org.fenixedu.bennu.core.domain.Bennu playsRole bennu {
+		multiplicity 1..1;
+	}
+}
+
+relation GoogleAPIBennuRoot {
+	public api.GoogleAPI playsRole googleAPI {
+		multiplicity 0..1;
+	}
+	public .org.fenixedu.bennu.core.domain.Bennu playsRole bennu {
+		multiplicity 1..1;
+	}
+}
+
+// social api - social user relationship definition
+
+relation GithubAPIUser {
+	public api.GithubAPI playsRole githubAPI {
+		multiplicity 1..1;
+	}
+	protected user.GithubUser playsRole githubUser {
+		multiplicity 0..*;
+	}
+}
+
+relation LinkedinAPIUser {
+	public api.LinkedinAPI playsRole linkedinAPI {
+		multiplicity 1..1;
+	}
+	protected user.LinkedinUser playsRole linkedinUser {
+		multiplicity 0..*;
+	}
+}
+
+relation FacebookAPIUser {
+	public api.FacebookAPI playsRole facebookAPI {
+		multiplicity 1..1;
+	}
+	protected user.FacebookUser playsRole facebookUser {
+		multiplicity 0..*;
+	}
+}
+
+relation TwitterAPIUser {
+	public api.TwitterAPI playsRole twitterAPI {
+		multiplicity 1..1;
+	}
+	protected user.TwitterUser playsRole twitterUser {
+		multiplicity 0..*;
+	}
+}
+
+relation FlickrAPIUser {
+	public api.FlickrAPI playsRole flickrAPI {
+		multiplicity 1..1;
+	}
+	protected user.FlickrUser playsRole flickrUser {
+		multiplicity 0..*;
+	}
+}
+
+relation DropboxAPIUser {
+	public api.DropboxAPI playsRole dropboxAPI {
+		multiplicity 1..1;
+	}
+	protected user.DropboxUser playsRole dropboxUser {
+		multiplicity 0..*;
+	}
+}
+
+relation BitbucketAPIUser {
+	public api.BitbucketAPI playsRole bitbucketAPI {
+		multiplicity 1..1;
+	}
+	protected user.BitbucketUser playsRole bitbucketUser {
+		multiplicity 0..*;
+	}
+}
+
+relation GoogleAPIUser {
+	public api.GoogleAPI playsRole googleAPI {
+		multiplicity 1..1;
+	}
+	protected user.GoogleUser playsRole googleUser {
+		multiplicity 0..*;
+	}
+}
